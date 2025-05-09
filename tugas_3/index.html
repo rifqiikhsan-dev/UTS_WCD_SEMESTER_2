@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Open+Sans:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    </head>
+
+    <body>
+        <div class="page">
+            <nav data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
+                <a href="#" id="logo">
+                    <img src="./images/logo.svg" alt="workoutaja logo" />
+                </a>
+                <div class="nav-items">
+                    <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+                    <ul class="nav-links">
+                        <li><a class="active" href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Training</a></li>
+                    </ul>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+            </nav>
+
+            <main>
+                <section class="text" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
+                    <h1>
+                        WORKOUTS MADE <br />
+                        <span>EXCLUSIVE</span> FOR YOU!
+                    </h1>
+                    <p>
+                        We create <strong>exclusive and unique</strong> workouts for you. <br />
+                        Invest in your body and get <strong>much more performance</strong><br />and quality of life.
+                    </p>
+                    <button>
+                        <img src="./images/whatsapp-icon.svg" alt="whatsapp icon" />
+                        Start now
+                    </button>
+                </section>
+                <img
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                    data-aos-delay="500"
+                    id="woman"
+                    src="./images/woman.svg"
+                    alt="illustration of a woman doing workout on a gym"
+                />
+            </main>
+
+            <footer>send us a message <a href="mailto:#"> @workoutaja</a></footer>
+        </div>
+        <img id="balls" src="./images/balls.svg" alt="decorative balls" />
+
+        <script>
+            document.querySelector(".menu-toggle").addEventListener("click", function () {
+                document.querySelector(".nav-links").classList.toggle("active");
+            });
+
+            const darkModeToggle = document.getElementById("dark-mode-toggle");
+            const body = document.body;
+
+            if (localStorage.getItem("dark-mode") === "enabled") {
+                body.classList.add("dark-mode");
+                darkModeToggle.textContent = "☀️";
+            }
+
+            darkModeToggle.addEventListener("click", () => {
+                body.classList.toggle("dark-mode");
+
+                if (body.classList.contains("dark-mode")) {
+                    localStorage.setItem("dark-mode", "enabled");
+                    darkModeToggle.textContent = "☀️";
+                } else {
+                    localStorage.setItem("dark-mode", "disabled");
+                    darkModeToggle.textContent = "🌙";
+                }
+            });
+        </script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    </body>
+</html>
